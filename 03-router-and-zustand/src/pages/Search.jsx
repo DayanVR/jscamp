@@ -111,7 +111,6 @@ const useFilters = () => {
 
 export default function SearchPage() {
   const {
-    filters,
     jobs,
     total,
     loading,
@@ -141,7 +140,6 @@ export default function SearchPage() {
         initialFilters={filters}
         onSearch={handleSearch}
         onTextFilter={handleTextFilter}
-        initialFilters={filters}
       />
 
       <section className={styles.searchResults}>
