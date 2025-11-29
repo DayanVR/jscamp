@@ -50,11 +50,11 @@ const useSearchForm = ({
   };
 };
 
-export function SearchFormSection ({ initialFilters, onTextFilter, onSearch, initialText }) {
-  const idText = useId()
-  const idTechnology = useId()
-  const idLocation = useId()
-  const idExperienceLevel = useId()
+export function SearchFormSection({ initialFilters, onTextFilter, onSearch, initialText }) {
+  const idText = useId();
+  const idTechnology = useId();
+  const idLocation = useId();
+  const idExperienceLevel = useId();
 
   const inputRef = useRef();
 
@@ -112,7 +112,11 @@ export function SearchFormSection ({ initialFilters, onTextFilter, onSearch, ini
         </div>
 
         <div className="search-filters">
-          <select name={idTechnology} id="filter-technology" defaultValue={initialFilters.technology}>
+          <select
+            name={idTechnology}
+            id="filter-technology"
+            defaultValue={initialFilters.technology}
+          >
             <option value="">Tecnología</option>
             <optgroup label="Tecnologías populares">
               <option value="javascript">JavaScript</option>
@@ -139,7 +143,11 @@ export function SearchFormSection ({ initialFilters, onTextFilter, onSearch, ini
             <option value="barcelona">Barcelona</option>
           </select>
 
-          <select name={idExperienceLevel} id="filter-experience-level" defaultValue={initialFilters.experienceLevel}>
+          <select
+            name={idExperienceLevel}
+            id="filter-experience-level"
+            defaultValue={initialFilters.experienceLevel}
+          >
             <option value="">Nivel de experiencia</option>
             <option value="junior">Junior</option>
             <option value="mid">Mid-level</option>

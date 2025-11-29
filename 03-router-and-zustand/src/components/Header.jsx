@@ -1,13 +1,13 @@
-import { NavLink } from 'react-router'
-import { Link } from './Link'
-import { useAuthStore } from '../store/authStore'
-import { useFavoritesStore } from '../store/favoritesStore'
+import { NavLink } from "react-router";
+import { Link } from "./Link";
+import { useAuthStore } from "../store/authStore";
+import { useFavoritesStore } from "../store/favoritesStore";
 
-export function Header () {
-  const { isLoggedIn } = useAuthStore()
-  const { countFavorites } = useFavoritesStore()
+export function Header() {
+  const { isLoggedIn } = useAuthStore();
+  const { countFavorites } = useFavoritesStore();
 
-  const numberOfFavorites = countFavorites()
+  const numberOfFavorites = countFavorites();
   return (
     <header>
       <Link href="/" style={{ textDecoration: "none" }}>
@@ -29,36 +29,33 @@ export function Header () {
       </Link>
 
       <nav>
-        <NavLink
-          className={({ isActive }) => isActive ? 'nav-link-active' : ''}
-          to="/search">Empleos</NavLink>
-          {
-            isLoggedIn && (
-              <NavLink
-                className={({ isActive }) => isActive ? 'nav-link-active' : ''}
-                to="/profile">
-                  Profile ❤️ {numberOfFavorites}
-              </NavLink>
-            )
-          }
+        <NavLink className={({ isActive }) => (isActive ? "nav-link-active" : "")} to="/search">
+          Empleos
+        </NavLink>
+        {isLoggedIn && (
+          <NavLink className={({ isActive }) => (isActive ? "nav-link-active" : "")} to="/profile">
+            Profile ❤️ {numberOfFavorites}
+          </NavLink>
+        )}
       </nav>
 
       <HeaderUserButton />
-
     </header>
-  )
+  );
 }
 
 const HeaderUserButton = () => {
-  const { isLoggedIn, login, logout } = useAuthStore()
-  const { clearFavorites } = useFavoritesStore()
+  const { isLoggedIn, login, logout } = useAuthStore();
+  const { clearFavorites } = useFavoritesStore();
 
   const handleLogout = () => {
-    logout()
-    clearFavorites()
-  }
+    logout();
+    clearFavorites();
+  };
 
-  return isLoggedIn
-    ? <button onClick={handleLogout}>Cerrar sesión</button>
-    : <button onClick={login}>Iniciar sesión</button>
-}
+  return isLoggedIn ? (
+    <button onClick={handleLogout}>Cerrar sesión</button>
+  ) : (
+    <button onClick={login}>Iniciar sesión</button>
+  );
+};
