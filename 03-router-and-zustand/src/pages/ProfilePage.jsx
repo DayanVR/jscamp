@@ -1,23 +1,23 @@
-import { useAuthStore } from "../store/authStore";
-import styles from "./ProfilePage.module.css";
+import { useAuthStore } from '../store/authStore'
+import styles from './ProfilePage.module.css'
 
 export default function Profile() {
-  const { logout } = useAuthStore();
+  const { logout } = useAuthStore()
 
   return (
-    <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "2rem 1rem" }}>
+    <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '2rem 1rem' }}>
       <div className={styles.container}>
         <div className={styles.header}>
           <div className={styles.avatar}>
-            <svg
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              viewBox="0 0 24 24"
+            <svg 
+              fill="none" 
+              stroke="currentColor" 
+              strokeWidth="2" 
+              viewBox="0 0 24 24" 
               xmlns="http://www.w3.org/2000/svg"
             >
-              <path
-                strokeLinecap="round"
+              <path 
+                strokeLinecap="round" 
                 strokeLinejoin="round"
                 d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
               />
@@ -82,12 +82,14 @@ export default function Profile() {
         </div>
 
         <div className={styles.actions}>
-          <button className={styles.editButton}>Editar Perfil</button>
+          <button className={styles.editButton}>
+            Editar Perfil
+          </button>
           <button className={styles.logoutButton} onClick={logout}>
             Cerrar Sesión
           </button>
         </div>
       </div>
     </div>
-  );
+  )
 }
